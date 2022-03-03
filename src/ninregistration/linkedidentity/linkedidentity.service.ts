@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
-import { Biodatum } from '../biodata/entities/biodatum.entity';
+//import { InjectRepository } from '@nestjs/typeorm';
+//import { Repository } from 'typeorm';
+//import { Biodatum } from '../biodata/entities/biodatum.entity';
 import { CreateLinkedidentityDto } from './dto/create-linkedidentity.dto';
 import { UpdateLinkedidentityDto } from './dto/update-linkedidentity.dto';
-import { Linkedidentity } from './entities/linkedidentity.entity';
+//import { Linkedidentity } from './entities/linkedidentity.entity';
 
 @Injectable()
 export class LinkedidentityService {
