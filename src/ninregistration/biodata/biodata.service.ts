@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm' 
+import { Repository } from 'typeorm';
 import { CreateBiodatumDto } from './dto/create-biodatum.dto';
 import { UpdateBiodatumDto } from './dto/update-biodatum.dto';
-
+import { Biodatum } from './entities/biodatum.entity';
+ 
 @Injectable()
 export class BiodataService {
-  create(createBiodatumDto: CreateBiodatumDto) {
-    return 'This action adds a new biodatum';
+  biodataService: any;
+  constructor(
+    @InjectRepository(Biodatum)
+    private biodatumRepository: Repository<Biodatum>
+  ){}
+
+  async Create(CreateBiodatumDto: CreateBiodatumDto){
+    const newCitizen = this.biodatumRepository.create(CreateBiodatumDto)
+    return this.biodataService.save(newCitizen)
   }
 
-  findAll() {
-    return `This action returns all biodata`;
+  async findAll() {
+    return await this.biodatumRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} biodatum`;
+  async findOne(id: number) {
+    return await this.biodatumRepository.findOne(id);
   }
 
-  update(id: number, updateBiodatumDto: UpdateBiodatumDto) {
-    return `This action updates a #${id} biodatum`;
+  async update(id: number, updateBiodatumDto: UpdateBiodatumDto) {
+    return await this.biodatumRepository.update(id,updateBiodatumDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} biodatum`;
+  async remove(id: number) {
+    return await this.biodatumRepository.delete(id);
   }
 }

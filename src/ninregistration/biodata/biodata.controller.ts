@@ -9,7 +9,7 @@ export class BiodataController {
 
   @Post()
   create(@Body() createBiodatumDto: CreateBiodatumDto) {
-    return this.biodataService.create(createBiodatumDto);
+    return this.biodataService.Create(createBiodatumDto);
   }
 
   @Get()

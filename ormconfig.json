@@ -1,13 +1,12 @@
 {
     "type": "postgres",
     "host": "localhost",
-    "port": 5434,
+    "port": 5432,
     "username": "postgres",
-    "password": "postgres",
-    "database": "nestwafprimer",
+    "password": "1234",
+    "database": "ninregistration",
     "entities": [
     "dist/**/*.entity{.ts,.js}"
     ],
     "synchronize": true
     }
-    
