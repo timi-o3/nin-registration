@@ -33,7 +33,7 @@ export class Biodatum {
     email: string;
 
     @Column({nullable: true})
-    residenceaddress: CharacterData;
+    residenceaddress: string;
 
     @Column({ default: true })
     proffesion: string;
