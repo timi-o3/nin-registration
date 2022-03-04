@@ -171,14 +171,14 @@
     }
 
     //call fetch
-    fetch('/users', init)
+    fetch('/biodata', init)
         .then(response => response.json())
         .then(data => {
             //alert(JSON.stringify(data))
             //remove spinner class
             document.getElementById("submitBiodataForm").classList.remove("is-loading");
             //set notification
-            document.getElementById("notificationMessage").innerHTML = 'User creation successful';
+            document.getElementById("notificationMessage").innerHTML = 'Biodataform creation successful';
             //add notification color class sent
             document.getElementById("notification").classList.add("is-success");
             //remove is-hidden from notificationWrapper

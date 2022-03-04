@@ -14,8 +14,8 @@ export class BiodataService {
   ){}
 
   async Create(CreateBiodatumDto: CreateBiodatumDto){
-    const newCitizen = this.biodatumRepository.create(CreateBiodatumDto)
-    return this.biodataService.save(newCitizen)
+    const newBiodatumDto = this.biodatumRepository.create(CreateBiodatumDto)
+    return await this.biodataService.create(newBiodatumDto)
   }
 
   async findAll() {
@@ -34,3 +34,7 @@ export class BiodataService {
     return await this.biodatumRepository.delete(id);
   }
 }
+function newBiodatumDto(newBiodatumDto: any) {
+  throw new Error('Function not implemented.');
+}
+
