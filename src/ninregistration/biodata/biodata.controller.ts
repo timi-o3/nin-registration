@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, Render } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Render, Put } from '@nestjs/common';
 import { BiodataService } from './biodata.service';
 import { CreateBiodatumDto } from './dto/create-biodatum.dto';
 import { UpdateBiodatumDto } from './dto/update-biodatum.dto';
@@ -6,19 +6,19 @@ import { UpdateBiodatumDto } from './dto/update-biodatum.dto';
 @Controller('users')
 export class BiodataController {
   constructor(private readonly biodataService: BiodataService) {}
-  @Get('Create')
-  @Render('biodata/create-biodata.html')
-  createForm(){
 
-  }
   @Post()
   create(@Body() createBiodatumDto: CreateBiodatumDto) {
-    return this.biodataService.Create(createBiodatumDto);
+    return this.biodataService.create(createBiodatumDto);
   }
-
   @Get()
   findAll() {
     return this.biodataService.findAll();
+  }
+
+  @Get('create')
+  @Render('biodata/create-biodata.html')
+  createForm(){
   }
 
   @Get(':id')
@@ -26,7 +26,7 @@ export class BiodataController {
     return this.biodataService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() updateBiodatumDto: UpdateBiodatumDto) {
     return this.biodataService.update(+id, updateBiodatumDto);
   }

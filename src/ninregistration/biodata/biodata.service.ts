@@ -7,15 +7,15 @@ import { Biodatum } from './entities/biodatum.entity';
  
 @Injectable()
 export class BiodataService {
-  biodataService: any;
+
   constructor(
     @InjectRepository(Biodatum)
     private biodatumRepository: Repository<Biodatum>
   ){}
 
-  async Create(CreateBiodatumDto: CreateBiodatumDto){
-    const newBiodatumDto = this.biodatumRepository.create(CreateBiodatumDto)
-    return await this.biodataService.create(newBiodatumDto)
+  async create(CreateBiodatumDto: CreateBiodatumDto){
+    const newBiodatum: Biodatum = this.biodatumRepository.create(CreateBiodatumDto)
+    return this.biodatumRepository.save(newBiodatum);
   }
 
   async findAll() {

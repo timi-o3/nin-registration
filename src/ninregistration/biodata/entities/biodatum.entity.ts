@@ -1,6 +1,8 @@
-import { Column,Entity,PrimaryGeneratedColumn } from "typeorm";
+import { Linkedidentity } from "src/ninregistration/linkedidentity/entities/linkedidentity.entity";
+import { Column,Entity,JoinColumn,OneToOne,PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
+
 export class Biodatum {
     @PrimaryGeneratedColumn()
     id: number;
@@ -29,12 +31,14 @@ export class Biodatum {
     @Column({nullable: true})
     townofbirth: string;
 
-    @Column()
-    email: string;
-
     @Column({nullable: true})
     residenceaddress: string;
 
     @Column({ default: true })
     proffesion: string;
+    linkedIdentity: any;
+
+    @OneToOne(() => Linkedidentity)
+    @JoinColumn()
+    LinkedIdentity: Linkedidentity;
 }
