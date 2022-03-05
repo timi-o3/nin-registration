@@ -1,4 +1,5 @@
-import { Column,Entity,PrimaryGeneratedColumn } from "typeorm";
+import { Biodatum } from "src/ninregistration/biodata/entities/biodatum.entity";
+import { Column,Entity,JoinColumn,OneToOne,PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Linkedidentity {
@@ -14,4 +15,7 @@ export class Linkedidentity {
     @Column()
     phonenumber: string;
 
+    @OneToOne(() => Biodatum)
+    @JoinColumn()
+    biodatum: Biodatum;
 }
